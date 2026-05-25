@@ -1,0 +1,24 @@
+<section id="servizi" class="section-dark">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="section-title mx-auto anim-fade-up">Servizi d'Élite</h2>
+      <p class="section-subtitle anim-fade-up anim-delay-1">
+        Competenza multidisciplinare. Dalla trasmissione automatica alla carpenteria tecnica.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (s of services; track s.title; let i = $index) {
+        <div class="col-md-6 col-lg-4">
+          <div class="glass-card h-100 anim-fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+            <i class="bi {{ s.icon }} icon-neon"></i>
+            <h5 class="mb-3" style="font-family:'Oswald',sans-serif; letter-spacing:1px;">{{ s.title }}</h5>
+            <p style="color:#9e9e9e; font-size:0.92rem; line-height:1.7;">{{ s.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

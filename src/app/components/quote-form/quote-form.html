@@ -1,0 +1,78 @@
+<section id="preventivo" class="section-darker">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+
+        <div class="text-center mb-5">
+          <h2 class="section-title mx-auto anim-fade-up">Richiedi Preventivo</h2>
+          <p class="section-subtitle anim-fade-up anim-delay-1">
+            Compila il form e verrai contattato direttamente su WhatsApp.
+          </p>
+        </div>
+
+        <div class="glass-card anim-fade-up anim-delay-2">
+          <form class="form-ev" (ngSubmit)="submit()">
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label class="form-label" for="nome">Nome *</label>
+                <input type="text" class="form-control" id="nome"
+                       placeholder="Il tuo nome" [(ngModel)]="form.nome" name="nome" required />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="telefono">Telefono *</label>
+                <input type="tel" class="form-control" id="telefono"
+                       placeholder="Numero di telefono" [(ngModel)]="form.telefono" name="telefono" required />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="auto">Modello Auto / Targa *</label>
+                <input type="text" class="form-control" id="auto"
+                       placeholder="Es. Audi A4 2.0 TDI - AB123CD" [(ngModel)]="form.auto" name="auto" required />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="servizio">Tipo di Intervento *</label>
+                <select class="form-select" id="servizio" [(ngModel)]="form.servizio" name="servizio" required>
+                  <option value="" disabled selected>Seleziona il servizio...</option>
+                  @for (opt of options; track opt) {
+                    <option [value]="opt">{{ opt }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="messaggio">Note aggiuntive</label>
+                <textarea class="form-control" id="messaggio" rows="4"
+                          placeholder="Descrivi brevemente il problema o la richiesta..."
+                          [(ngModel)]="form.messaggio" name="messaggio"></textarea>
+              </div>
+
+              <div class="col-12 text-center mt-3">
+                <button type="submit" class="btn-neon">
+                  <i class="bi bi-whatsapp"></i> Invia Richiesta su WhatsApp
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Contatti rapidi -->
+        <div class="text-center mt-4 anim-fade-up anim-delay-3">
+          <p style="color:#9e9e9e; font-size:0.85rem; line-height:2;">
+            Oppure chiamaci direttamente:<br />
+            <i class="bi bi-telephone-fill me-1" style="color:#39ff14;"></i>
+            <a href="tel:0543545937" style="color:#39ff14; font-weight:600;">0543.545937</a>
+            <small style="color:#9e9e9e;"> — Lun–Ven 8:00–12:30 e 14:00–18:00</small><br />
+            <i class="bi bi-phone-fill me-1" style="color:#39ff14;"></i>
+            <a href="tel:3486193795" style="color:#39ff14; font-weight:600;">348.619.3795</a>
+            <small style="color:#39ff14;"> — Per emergenze</small>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

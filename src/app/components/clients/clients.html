@@ -1,0 +1,24 @@
+<section id="clienti" class="section-darker">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="section-title mx-auto anim-fade-up">Si Affidano a Noi</h2>
+      <p class="section-subtitle anim-fade-up anim-delay-1">
+        Aziende leader che scelgono EV Meccatronica per la manutenzione della loro flotta.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center align-items-center">
+      @for (client of clients; track client.alt; let i = $index) {
+        <div class="col-6 col-md-3 text-center anim-fade-up" [style.transition-delay]="(i * 0.1) + 's'">
+          <div class="d-flex align-items-center justify-content-center"
+               style="min-height:120px; background:rgba(255,255,255,0.93); border-radius:12px; padding:1.5rem; border:1px solid rgba(57,255,20,0.2);">
+            <img [src]="client.src" [alt]="client.alt" class="img-fluid"
+                 style="max-height:65px; object-fit:contain;" loading="lazy" />
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

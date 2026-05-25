@@ -1,0 +1,42 @@
+<section id="gallery" class="section-darker">
+  <div class="container">
+
+    <div class="text-center mb-4">
+      <h2 class="section-title mx-auto anim-fade-up">The Beast Gallery</h2>
+      <p class="section-subtitle anim-fade-up anim-delay-1">
+        Auto di prestigio, lavorazioni di precisione e il cuore della nostra officina.
+      </p>
+    </div>
+
+    <!-- Filtri -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4 anim-fade-up anim-delay-2">
+      @for (f of filters; track f.key) {
+        <button
+          class="badge-neon"
+          [style.background]="activeFilter() === f.key ? 'rgba(57,255,20,0.15)' : 'transparent'"
+          style="cursor:pointer;"
+          (click)="filter(f.key)"
+        >
+          {{ f.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Griglia -->
+    <div class="gallery-grid anim-fade-up anim-delay-3">
+      @for (img of filtered; track img.src) {
+        <div class="gallery-item" (click)="open(img.src)">
+          <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxSrc()) {
+  <div class="lightbox-overlay" (click)="close()">
+    <img [src]="lightboxSrc()!" alt="Anteprima" />
+  </div>
+}

@@ -1,0 +1,49 @@
+<section id="hero" class="hero-section">
+
+  <div class="hero-bg" [style.background-image]="'url(' + hero.backgroundImage + ')'"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-8">
+
+        <!-- Badge -->
+        <div class="d-flex flex-wrap gap-3 mb-4 anim-fade-up">
+          <span class="badge-neon">{{ hero.badge1 }}</span>
+          <span class="badge-neon">{{ hero.badge2 }}</span>
+        </div>
+
+        <!-- Titolo -->
+        <h1 class="display-3 fw-bold mb-3 anim-fade-up anim-delay-1" style="line-height:1.1;">
+          <span style="color:#39ff14;">EV</span> MECCATRONICA:<br />
+          INGEGNERIA<br />
+          <span style="color:#39ff14;">SENZA COMPROMESSI</span>
+        </h1>
+
+        <!-- Sottotitolo -->
+        <p class="fs-5 mb-4 anim-fade-up anim-delay-2" style="color:#9e9e9e; max-width:600px;">
+          {{ hero.subtitle }}
+        </p>
+
+        <!-- CTA -->
+        <div class="d-flex flex-wrap gap-3 anim-fade-up anim-delay-3">
+          <a class="btn-neon" href="#" (click)="scrollTo('preventivo'); $event.preventDefault()">
+            <i class="bi bi-whatsapp"></i> Richiedi Preventivo
+          </a>
+          <a class="btn-neon-outline" href="#" (click)="scrollTo('servizi'); $event.preventDefault()">
+            <i class="bi bi-arrow-down-short"></i> Scopri i Servizi
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 text-center anim-fade-up anim-delay-4">
+    <div style="width:24px; height:40px; border:2px solid rgba(57,255,20,0.4); border-radius:12px; margin:0 auto 0.5rem;">
+      <div style="width:4px; height:8px; background:#39ff14; border-radius:2px; margin:6px auto 0; animation:scrollBounce 1.8s infinite;"></div>
+    </div>
+    <small style="color:#9e9e9e; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase;">Scroll</small>
+  </div>
+
+</section>

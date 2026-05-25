@@ -1,0 +1,99 @@
+<footer class="footer-ev">
+  <div class="container">
+
+    <!-- Mappa -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <h6 style="font-family:'Oswald',sans-serif; letter-spacing:2px; color:#f0f0f0; margin-bottom:0.75rem;">
+          <i class="bi bi-geo-alt-fill me-2" style="color:#39ff14;"></i>DOVE SIAMO
+        </h6>
+        <div style="position:relative; border-radius:12px; overflow:hidden; border:1px solid rgba(57,255,20,0.2);">
+          <iframe
+            src="https://maps.google.com/maps?q=Via+Emilia+per+Cesena+1311,+Forlimpopoli+FC,+Italy&output=embed&hl=it&z=15"
+            width="100%" height="260"
+            style="border:0; display:block; filter:grayscale(1) invert(1) sepia(1) hue-rotate(85deg) saturate(12) contrast(1.4) brightness(0.65);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="EV Meccatronica - Via Emilia per Cesena 1311, Forlimpopoli">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Brand -->
+      <div class="col-lg-4 mb-3 mb-lg-0">
+        <div class="footer-brand mb-3"><span>EV</span> MECCATRONICA</div>
+        <p style="font-size:0.85rem; line-height:1.8;">
+          Centro Assistenza Cambio Automatico<br />
+          Officina e Motorsport<br />
+          di Elezi Valter
+        </p>
+      </div>
+
+      <!-- Contatti -->
+      <div class="col-lg-4 mb-3 mb-lg-0">
+        <h6 style="font-family:'Oswald',sans-serif; letter-spacing:2px; color:#f0f0f0; margin-bottom:1rem;">CONTATTI</h6>
+        <p style="font-size:0.85rem; line-height:2;">
+          <i class="bi bi-geo-alt-fill me-2" style="color:#39ff14;"></i>{{ c.address }}<br />
+          <i class="bi bi-telephone-fill me-2" style="color:#39ff14;"></i>
+          <a [href]="c.phoneHref">{{ c.phone }}</a><br />
+          <small class="d-block" style="color:#9e9e9e; font-size:0.75rem; padding-left:1.4rem; margin-top:-0.3rem; margin-bottom:0.2rem;">
+            {{ c.hours }}
+          </small>
+          <i class="bi bi-phone-fill me-2" style="color:#39ff14;"></i>
+          <a [href]="c.mobileHref">{{ c.mobile }}</a>
+          <small style="color:#39ff14; font-size:0.78rem;"> — Per emergenze</small>
+        </p>
+      </div>
+
+      <!-- Dati aziendali -->
+      <div class="col-lg-4">
+        <h6 style="font-family:'Oswald',sans-serif; letter-spacing:2px; color:#f0f0f0; margin-bottom:1rem;">DATI AZIENDALI</h6>
+        <p style="font-size:0.8rem; line-height:2;">
+          P.IVA: {{ c.vatNumber }}<br />
+          C.F.: {{ c.fiscalCode }}<br />
+          Cod. SDI: {{ c.sdi }}
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- Social -->
+    <div class="text-center mb-4">
+      <p style="font-family:'Oswald',sans-serif; letter-spacing:2px; color:#f0f0f0; font-size:0.8rem; margin-bottom:1rem;">
+        SEGUICI SUI SOCIAL
+      </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a [href]="c.instagram" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; gap:0.5rem; color:#f0f0f0; text-decoration:none; background:rgba(255,255,255,0.05); border:1px solid rgba(57,255,20,0.15); border-radius:8px; padding:0.6rem 1.2rem; font-size:0.9rem; transition:all 0.3s ease;"
+           onmouseover="this.style.borderColor='rgba(57,255,20,0.6)';this.style.color='#39ff14';"
+           onmouseout="this.style.borderColor='rgba(57,255,20,0.15)';this.style.color='#f0f0f0';"
+           onfocus="this.style.borderColor='rgba(57,255,20,0.6)';this.style.color='#39ff14';"
+           onblur="this.style.borderColor='rgba(57,255,20,0.15)';this.style.color='#f0f0f0';">
+          <i class="bi bi-instagram" style="font-size:1.2rem;"></i>
+          <span>{{ c.instagramHandle }}</span>
+        </a>
+        <a [href]="'https://wa.me/' + c.whatsapp" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex; align-items:center; gap:0.5rem; color:#f0f0f0; text-decoration:none; background:rgba(255,255,255,0.05); border:1px solid rgba(57,255,20,0.15); border-radius:8px; padding:0.6rem 1.2rem; font-size:0.9rem; transition:all 0.3s ease;"
+           onmouseover="this.style.borderColor='rgba(57,255,20,0.6)';this.style.color='#39ff14';"
+           onmouseout="this.style.borderColor='rgba(57,255,20,0.15)';this.style.color='#f0f0f0';"
+           onfocus="this.style.borderColor='rgba(57,255,20,0.6)';this.style.color='#39ff14';"
+           onblur="this.style.borderColor='rgba(57,255,20,0.15)';this.style.color='#f0f0f0';">
+          <i class="bi bi-whatsapp" style="font-size:1.2rem;"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <small>&copy; {{ year }} EV Meccatronica di Elezi Valter — Tutti i diritti riservati.</small>
+      <small class="mt-2 mt-md-0" style="color:#9e9e9e;">P.IVA {{ c.vatNumber }}</small>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,524 @@
+/* ═══════════════════════════════════════════════════════════
+   EV MECCATRONICA — Global Styles
+   Ultra-Dark Theme + Neon Accent (#39FF14)
+   ═══════════════════════════════════════════════════════════ */
+
+// ── Variables ──
+$bg-darkest: #0a0a0a;
+$bg-dark: #121212;
+$bg-card: rgba(255, 255, 255, 0.04);
+$neon: #39ff14;
+$neon-dim: rgba(57, 255, 20, 0.35);
+$neon-glow: rgba(57, 255, 20, 0.15);
+$text-primary: #f0f0f0;
+$text-secondary: #9e9e9e;
+$font-heading: 'Oswald', sans-serif;
+$font-body: 'Montserrat', sans-serif;
+
+// ── Base ──
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: $font-body;
+  background: $bg-dark;
+  color: $text-primary;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+a {
+  color: $neon;
+  text-decoration: none;
+  transition: color 0.3s;
+  &:hover { color: lighten($neon, 15%); }
+}
+
+::selection {
+  background: $neon;
+  color: $bg-darkest;
+}
+
+// ── Scrollbar ──
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: $bg-darkest; }
+::-webkit-scrollbar-thumb {
+  background: $neon-dim;
+  border-radius: 3px;
+}
+
+// ── Section Spacing ──
+.section-dark {
+  padding: 6rem 0;
+  background: $bg-dark;
+}
+
+.section-darker {
+  padding: 6rem 0;
+  background: $bg-darkest;
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: $neon;
+    box-shadow: 0 0 12px $neon-dim;
+  }
+}
+
+.section-subtitle {
+  color: $text-secondary;
+  font-size: 1.05rem;
+  font-weight: 300;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+// ── Neon Badge ──
+.badge-neon {
+  display: inline-block;
+  padding: 0.45rem 1.2rem;
+  font-family: $font-heading;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $neon;
+  border: 1px solid $neon;
+  border-radius: 2px;
+  background: rgba(57, 255, 20, 0.06);
+  box-shadow: 0 0 8px $neon-glow;
+}
+
+// ── Glassmorphism Card ──
+.glass-card {
+  background: $bg-card;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(57, 255, 20, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    border-color: $neon-dim;
+    box-shadow: 0 0 30px $neon-glow, inset 0 0 30px rgba(57, 255, 20, 0.03);
+    transform: translateY(-4px);
+  }
+}
+
+// ── Neon Button ──
+.btn-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-family: $font-heading;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $bg-darkest;
+  background: $neon;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px $neon-glow;
+
+  &:hover {
+    background: lighten($neon, 8%);
+    box-shadow: 0 0 35px $neon-dim;
+    transform: translateY(-2px);
+    color: $bg-darkest;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-neon-outline {
+  @extend .btn-neon;
+  background: transparent;
+  color: $neon;
+  border: 1px solid $neon;
+
+  &:hover {
+    background: $neon;
+    color: $bg-darkest;
+  }
+}
+
+// ── Navbar Progressive Blur ──
+.navbar-ev {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  padding: 1rem 0;
+  transition: all 0.4s ease;
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.6rem 0;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-link {
+    font-family: $font-heading;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $text-primary !important;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    transition: color 0.3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: $neon;
+      transition: width 0.3s;
+    }
+
+    &:hover,
+    &.active {
+      color: $neon !important;
+      &::after { width: 60%; }
+    }
+  }
+
+  .navbar-brand {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: $text-primary !important;
+
+    span { color: $neon; }
+  }
+}
+
+// ── Hero ──
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: $bg-darkest;
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    filter: brightness(0.5);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.7) 0%,
+        rgba(18, 18, 18, 0.9) 100%
+      );
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// ── Scroll Animations ──
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.anim-fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Staggered delays
+@for $i from 1 through 8 {
+  .anim-delay-#{$i} {
+    transition-delay: #{$i * 0.1}s;
+  }
+}
+
+// ── Before/After Slider ──
+.ba-slider {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(57, 255, 20, 0.15);
+  cursor: ew-resize;
+  user-select: none;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ba-after {
+    clip-path: inset(0 0 0 50%);
+  }
+
+  .ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: $neon;
+    box-shadow: 0 0 15px $neon-dim;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    .ba-knob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: $bg-darkest;
+      border: 2px solid $neon;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px $neon-glow;
+      font-size: 1.1rem;
+      color: $neon;
+    }
+  }
+}
+
+// ── Gallery Grid ──
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: brightness(0.7);
+    }
+
+    &:hover img {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    &:hover::after {
+      border-color: $neon-dim;
+      box-shadow: inset 0 0 30px $neon-glow;
+    }
+  }
+}
+
+// ── Lightbox ──
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: fadeIn 0.25s ease;
+
+  img {
+    max-width: 92vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(57, 255, 20, 0.1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// ── Quote Form ──
+.form-ev {
+  .form-control,
+  .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: $text-primary;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    font-family: $font-body;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: $neon;
+      box-shadow: 0 0 12px $neon-glow;
+      color: $text-primary;
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  .form-select option {
+    background: $bg-darkest;
+    color: $text-primary;
+  }
+
+  .form-label {
+    font-family: $font-heading;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $text-secondary;
+    margin-bottom: 0.4rem;
+  }
+}
+
+// ── Footer ──
+.footer-ev {
+  background: $bg-darkest;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3rem 0 1.5rem;
+  font-size: 0.9rem;
+  color: $text-secondary;
+
+  .footer-brand {
+    font-family: $font-heading;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: $text-primary;
+    span { color: $neon; }
+  }
+
+  a {
+    color: $text-secondary;
+    &:hover { color: $neon; }
+  }
+
+  .footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin: 2rem 0 1rem;
+  }
+}
+
+// ── Icon Neon ──
+.icon-neon {
+  font-size: 2.2rem;
+  color: $neon;
+  filter: drop-shadow(0 0 8px $neon-glow);
+  margin-bottom: 1rem;
+}
+
+// ── Responsive tweaks ──
+@media (max-width: 768px) {
+  .section-title { font-size: 1.8rem; }
+  .hero-section { min-height: 100svh; }
+  .ba-slider { max-width: 100%; }
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

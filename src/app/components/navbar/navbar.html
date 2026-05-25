@@ -1,0 +1,37 @@
+<nav class="navbar-ev" [class.scrolled]="scrolled()">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="#" (click)="scrollTo('hero'); $event.preventDefault()">
+      <span>EV</span> MECCATRONICA
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button class="btn d-lg-none p-0 border-0" (click)="toggle()" aria-label="Toggle navigation">
+      <i class="bi bi-list text-white fs-2"></i>
+    </button>
+
+    <!-- Link -->
+    <div
+      class="d-lg-flex align-items-center gap-1"
+      [class.d-none]="collapsed()"
+      [class.d-flex]="!collapsed()"
+      [class.flex-column]="!collapsed()"
+      [class.position-absolute]="!collapsed()"
+      [class.bg-dark]="!collapsed()"
+      [style.top]="collapsed() ? '' : '100%'"
+      [style.left]="collapsed() ? '' : '0'"
+      [style.right]="collapsed() ? '' : '0'"
+      [style.zIndex]="collapsed() ? '' : '1040'"
+      [style.padding]="collapsed() ? '0' : '1rem'"
+    >
+      <a class="nav-link" href="#" (click)="scrollTo('servizi');     $event.preventDefault()">Servizi</a>
+      <a class="nav-link" href="#" (click)="scrollTo('officina');    $event.preventDefault()">Officina</a>
+      <a class="nav-link" href="#" (click)="scrollTo('servizi');     $event.preventDefault()">Cambio Automatico</a>
+      <a class="nav-link" href="#" (click)="scrollTo('gallery');     $event.preventDefault()">Gallery</a>
+      <a class="nav-link" href="#" (click)="scrollTo('storia');      $event.preventDefault()">Chi Siamo</a>
+      <a class="nav-link" href="#" (click)="scrollTo('preventivo'); $event.preventDefault()">Preventivo</a>
+    </div>
+
+  </div>
+</nav>
