@@ -13,16 +13,37 @@
           (pointercancel)="onPointerUp()"
           style="touch-action:none;"
         >
-          <img [src]="images.before.src" [alt]="images.before.alt" class="ba-before" />
+          <img [src]="images().before.src" [alt]="images().before.alt" class="ba-before" />
           <img
-            [src]="images.after.src"
-            [alt]="images.after.alt"
+            [src]="images().after.src"
+            [alt]="images().after.alt"
             class="ba-after"
             [style.clip-path]="'inset(0 0 0 ' + sliderPos() + '%)'"
           />
           <div class="ba-handle" [style.left]="sliderPos() + '%'">
             <div class="ba-knob"><i class="bi bi-arrows-expand"></i></div>
           </div>
+
+          @if (hasMultiple) {
+            <button
+              type="button"
+              class="ba-nav ba-nav-prev"
+              aria-label="Foto precedente"
+              (pointerdown)="$event.stopPropagation()"
+              (click)="prev()"
+            >
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button
+              type="button"
+              class="ba-nav ba-nav-next"
+              aria-label="Foto successiva"
+              (pointerdown)="$event.stopPropagation()"
+              (click)="next()"
+            >
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          }
         </div>
       </div>
 

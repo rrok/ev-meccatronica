@@ -36,10 +36,17 @@ export const STORIA = {
 };
 
 // ── BEFORE / AFTER SLIDER (Lucidatura Fari) ──────────────────
-export const HEADLIGHT_SLIDER = {
-  before: { src: 'images/prima.png', alt: 'Faro prima della lucidatura' },
-  after:  { src: 'images/dopo.png',  alt: 'Faro dopo la lucidatura' },
-};
+// Aggiungi altre coppie qui per farle comparire nello slider (frecce ◀ ▶)
+export const HEADLIGHT_SLIDER = [
+  {
+    before: { src: 'images/prima.png', alt: 'Faro prima della lucidatura' },
+    after:  { src: 'images/dopo.png',  alt: 'Faro dopo la lucidatura' },
+  },
+  {
+    before: { src: 'images/prima-2.png', alt: 'Faro prima della lucidatura' },
+    after:  { src: 'images/dopo-2.png',  alt: 'Faro dopo la lucidatura' },
+  },
+];
 
 // ── SERVIZI ──────────────────────────────────────────────────
 export const SERVICES: Service[] = [
