@@ -2,7 +2,7 @@
   <div class="container d-flex align-items-center justify-content-between">
 
     <!-- Brand -->
-    <a class="navbar-brand" href="#" (click)="scrollTo('hero'); $event.preventDefault()">
+    <a class="navbar-brand" href="#hero" (click)="closeMenu()">
       <span>EV</span> MECCATRONICA
     </a>
 
@@ -25,12 +25,13 @@
       [style.zIndex]="collapsed() ? '' : '1040'"
       [style.padding]="collapsed() ? '0' : '1rem'"
     >
-      <a class="nav-link" href="#" (click)="scrollTo('servizi');     $event.preventDefault()">Servizi</a>
-      <a class="nav-link" href="#" (click)="scrollTo('officina');    $event.preventDefault()">Officina</a>
-      <a class="nav-link" href="#" (click)="scrollTo('servizi');     $event.preventDefault()">Cambio Automatico</a>
-      <a class="nav-link" href="#" (click)="scrollTo('gallery');     $event.preventDefault()">Gallery</a>
-      <a class="nav-link" href="#" (click)="scrollTo('storia');      $event.preventDefault()">Chi Siamo</a>
-      <a class="nav-link" href="#" (click)="scrollTo('preventivo'); $event.preventDefault()">Preventivo</a>
+      <a class="nav-link" href="#servizi" (click)="closeMenu()">Servizi</a>
+      <a class="nav-link" href="#officina" (click)="closeMenu()">Officina</a>
+      <a class="nav-link" href="#servizi" (click)="closeMenu()">Cambio Automatico</a>
+      <a class="nav-link" href="#gallery" (click)="closeMenu()">Gallery</a>
+      <a class="nav-link" href="#storia" (click)="closeMenu()">Chi Siamo</a>
+      <a class="nav-link" href="#preventivo" (click)="closeMenu()">Preventivo</a>
+      <a class="nav-link" href="#contatti" (click)="closeMenu()">Contatti</a>
     </div>
 
   </div>

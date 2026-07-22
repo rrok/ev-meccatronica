@@ -18,8 +18,7 @@ export class NavbarComponent {
     this.collapsed.update(v => !v);
   }
 
-  scrollTo(id: string): void {
+  closeMenu(): void {
     this.collapsed.set(true);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
