@@ -43,6 +43,30 @@ export class App implements AfterViewInit {
     );
     document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right')
       .forEach(el => observer.observe(el));
+
+    this.scrollToFragmentWhenStable();
+    window.addEventListener('hashchange', () => this.scrollToFragmentWhenStable());
+  }
+
+  /**
+   * Sections below the gallery grow after it finishes loading (async manifest
+   * fetch + lazy images), so the browser's one-shot fragment scroll lands
+   * short. Re-scroll to the target while the page's height is still settling.
+   */
+  private scrollToFragmentWhenStable(): void {
+    const id = location.hash.slice(1);
+    if (!id) return;
+
+    let settleTimer: ReturnType<typeof setTimeout>;
+    const resizeObserver = new ResizeObserver(() => {
+      document.getElementById(id)?.scrollIntoView();
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => resizeObserver.disconnect(), 400);
+    });
+    resizeObserver.observe(document.body);
+
+    // Safety cap in case something keeps resizing (e.g. an autoplay slider).
+    setTimeout(() => resizeObserver.disconnect(), 5000);
   }
 }
 
